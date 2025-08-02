@@ -17,11 +17,11 @@ Este projeto visa facilitar o planejamento e manejo de sistemas de **Integraçã
 
 ## 📸 Screenshots
 
-*Insira aqui screenshots da sua aplicação para demonstrar visualmente as funcionalidades.*
+Confira abaixo algumas capturas de tela que demonstram a interface e as principais funcionalidades da aplicação.
 
-| Tela Principal do Mapa | Análise de Solo |
-| :---: | :---: |
-| ![Tela Principal](URL_DA_IMAGEM_AQUI) | ![Análise de Solo](URL_DA_IMAGEM_AQUI) |
+|        Tela Principal do Mapa         |       Análise Detalhada do Solo        |
+|:-------------------------------------:|:--------------------------------------:|
+| ![Tela Principal](URL_DA_IMAGEM_AQUI) | ![Análise do Solo](URL_DA_IMAGEM_AQUI) |
 
 ## 🚀 Como Usar
 
@@ -34,7 +34,7 @@ Este projeto visa facilitar o planejamento e manejo de sistemas de **Integraçã
 
 1.  Clone o repositório:
     ```bash
-    git clone https://URL_DO_SEU_REPOSITORIO_AQUI.git
+    git clone https://github.com/vprezende/ilpf.git
     ```
 2.  Navegue até o diretório do projeto:
     ```bash
