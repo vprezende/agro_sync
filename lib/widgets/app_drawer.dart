@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart' hide DropdownMenu;
-import 'package:ilpf/controllers/drawer_state_controller.dart';
-import 'package:ilpf/controllers/line_controller.dart';
+import 'package:agro_sync/controllers/drawer_state_controller.dart';
+import 'package:agro_sync/controllers/line_controller.dart';
 
 import 'package:provider/provider.dart';
-import 'package:ilpf/controllers/tree_controller.dart';
+import 'package:agro_sync/controllers/tree_controller.dart';
 
-import 'package:ilpf/controllers/area_controller.dart';
+import 'package:agro_sync/controllers/area_controller.dart';
 
-import 'package:ilpf/widgets/app_snackbars.dart';
+import 'package:agro_sync/widgets/app_snackbars.dart';
 
-import 'package:ilpf/widgets/dropdown_menu.dart';
+import 'package:agro_sync/widgets/dropdown_menu.dart';
 
 class AppDrawer extends StatefulWidget {
 

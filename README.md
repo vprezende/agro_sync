@@ -1,4 +1,4 @@
-# Projeto ILPF - Integração Lavoura-Pecuária-Floresta
+# AgroSync: Integrando o futuro do agronegócio
 
 ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white)
@@ -34,11 +34,11 @@ Confira abaixo algumas capturas de tela que demonstram a interface e as principa
 
 1.  Clone o repositório:
     ```bash
-    git clone https://github.com/vprezende/ilpf.git
+    git clone https://github.com/vprezende/agro_sync.git
     ```
 2.  Navegue até o diretório do projeto:
     ```bash
-    cd ilpf
+    cd agro_sync
     ```
 3.  Instale as dependências:
     ```bash

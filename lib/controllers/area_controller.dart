@@ -3,7 +3,7 @@ import 'package:dart_jts/dart_jts.dart' as jts;
 import 'package:flutter/material.dart';
 import 'package:geodesy/geodesy.dart';
 import 'package:http/http.dart' as http;
-import 'package:ilpf/widgets/app_snackbars.dart';
+import 'package:agro_sync/widgets/app_snackbars.dart';
 
 class AreaController extends ChangeNotifier {
 

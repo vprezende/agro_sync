@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:ilpf/controllers/area_controller.dart';
-import 'package:ilpf/controllers/drawer_state_controller.dart';
-import 'package:ilpf/controllers/line_controller.dart';
-import 'package:ilpf/controllers/tree_controller.dart';
+import 'package:agro_sync/controllers/area_controller.dart';
+import 'package:agro_sync/controllers/drawer_state_controller.dart';
+import 'package:agro_sync/controllers/line_controller.dart';
+import 'package:agro_sync/controllers/tree_controller.dart';
 
-import 'package:ilpf/screens/map_screen.dart';
+import 'package:agro_sync/screens/map_screen.dart';
 
 void main() {
   runApp(

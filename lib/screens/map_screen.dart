@@ -6,14 +6,14 @@ import 'package:provider/provider.dart';
 
 // importando os controllers
 
-import 'package:ilpf/controllers/drawer_state_controller.dart';
-import 'package:ilpf/controllers/line_controller.dart';
-import 'package:ilpf/controllers/tree_controller.dart';
+import 'package:agro_sync/controllers/drawer_state_controller.dart';
+import 'package:agro_sync/controllers/line_controller.dart';
+import 'package:agro_sync/controllers/tree_controller.dart';
 
 // importando widgets
 
-import 'package:ilpf/widgets/area_dialog.dart';
-import 'package:ilpf/widgets/app_drawer.dart';
+import 'package:agro_sync/widgets/area_dialog.dart';
+import 'package:agro_sync/widgets/app_drawer.dart';
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});

@@ -1,8 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:ilpf/widgets/app_snackbars.dart';
+import 'package:agro_sync/widgets/app_snackbars.dart';
 
-import 'package:ilpf/controllers/area_controller.dart';
+import 'package:agro_sync/controllers/area_controller.dart';
 
 class AreaDialog extends StatefulWidget {
 
