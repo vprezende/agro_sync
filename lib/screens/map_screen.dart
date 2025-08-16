@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
 import 'package:geodesy/geodesy.dart';
 import 'package:provider/provider.dart';
 
@@ -80,13 +79,11 @@ class _MapScreenState extends State<MapScreen> {
         ),
         children: [
           TileLayer(
-            tileProvider: CancellableNetworkTileProvider(),
             urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
             userAgentPackageName: 'dev.fleaflet.flutter_map.imagery'
           ),
 
           TileLayer(
-            tileProvider: CancellableNetworkTileProvider(),
             urlTemplate: 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
             userAgentPackageName: 'dev.fleaflet.flutter_map.labels',
           ),
