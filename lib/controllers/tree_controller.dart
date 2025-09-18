@@ -17,7 +17,7 @@ class TreeController extends ChangeNotifier {
     required this.lineController
   });
 
-  addRankTreeToArea(int areaIndex, int numTrees) {
+  void addRankTreeToArea(int areaIndex, int numTrees) {
 
     final allAreas = this.areaController.allAreas;
     final area = allAreas[areaIndex];
@@ -79,7 +79,7 @@ class TreeController extends ChangeNotifier {
     notifyListeners();
   }
 
-  addRankTreeToLine(int lineIndex, int numTrees) {
+  void addRankTreeToLine(int lineIndex, int numTrees) {
 
     final allLines = this.lineController.allLines;
 
@@ -155,7 +155,7 @@ class TreeController extends ChangeNotifier {
     notifyListeners();
   }
 
-  addTreeToArea(int areaIndex) {
+  void addTreeToArea(int areaIndex) {
 
     final allAreas = this.areaController.allAreas;
 

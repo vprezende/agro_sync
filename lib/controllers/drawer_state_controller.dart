@@ -23,39 +23,39 @@ class DrawerStateController extends ChangeNotifier {
     required this.lineController
   });
 
-  incrementTreeCounter() {
+  void incrementTreeCounter() {
     treeCounter++;
     notifyListeners();
   }
 
-  decrementTreeCounter() {
+  void decrementTreeCounter() {
     if (treeCounter > 0) {
       treeCounter--;
       notifyListeners();
     }
   }
 
-  setRadioValue(String value) {
+  void setRadioValue(String value) {
     radioValue = value;
     notifyListeners();
   }
 
-  setDropValue(String value) {
+  void setDropValue(String value) {
     dropValue = value;
     notifyListeners();
   }
 
-  setAreaIndex(int index) {
+  void setAreaIndex(int index) {
     selectedAreaIndex = index;
     notifyListeners();
   }
 
-  setLineIndex(int index) {
+  void setLineIndex(int index) {
     selectedLineIndex = index;
     notifyListeners();
   }
 
-  reset() {
+  void reset() {
 
     radioValue = radioOptions.first;
     dropValue = '';

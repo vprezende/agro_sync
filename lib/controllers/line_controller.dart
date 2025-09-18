@@ -14,7 +14,7 @@ class LineController extends ChangeNotifier {
 
   LineController({required this.areaController});
 
-  connectPoints(BuildContext context) {
+  void connectPoints(BuildContext context) {
     if (currentArea.length < 2) {
       errorSnackBar(
         context,
@@ -28,7 +28,7 @@ class LineController extends ChangeNotifier {
     notifyListeners();
   }
 
-  resetLines() {
+  void resetLines() {
     currentArea.clear();
     this._lines.clear();
   }

@@ -15,7 +15,7 @@ class AreaController extends ChangeNotifier {
 
   final List<List<LatLng>> _originalArea = [];
 
-  addPoint(LatLng point) {
+  void addPoint(LatLng point) {
     currentArea.add(point);
     notifyListeners();
   }
@@ -40,7 +40,7 @@ class AreaController extends ChangeNotifier {
       .toList();
   }
 
-  closeArea(BuildContext context) {
+  void closeArea(BuildContext context) {
 
     if (currentArea.length < 3) {
       errorSnackBar(
@@ -69,13 +69,13 @@ class AreaController extends ChangeNotifier {
     }
   }
 
-  resetArea() {
+  void resetArea() {
     this._areas.clear();
     currentArea.clear();
     this._originalArea.clear();
   }
 
-  undoArea() {
+  void undoArea() {
     if (currentArea.isNotEmpty) {
       currentArea.removeLast();
       return;

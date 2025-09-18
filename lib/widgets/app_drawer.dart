@@ -100,10 +100,10 @@ class _AppDrawerState extends State<AppDrawer> {
                                   children: [
                                     Radio<String>(
                                       value: op,
-                                      groupValue: drawerStateController.radioValue,
+                                      groupValue: drawerStateController.radioValue,  // ignore: deprecated_member_use
                                       visualDensity: VisualDensity.compact,
                                       fillColor: const WidgetStatePropertyAll(Colors.white),
-                                      onChanged: (value) => drawerStateController.setRadioValue(value!)
+                                      onChanged: (value) => drawerStateController.setRadioValue(value!) // ignore: deprecated_member_use
                                     ),
                                     Text(
                                       op,
