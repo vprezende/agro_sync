@@ -79,79 +79,48 @@ class TreeController extends ChangeNotifier {
     notifyListeners();
   }
 
-  void addRankTreeToLine(int lineIndex, int numTrees) {
+  void addRankTreeToLine(int lineIndex, double spacingMeters) {
 
     final allLines = this.lineController.allLines;
-
     final line = allLines[lineIndex];
 
     final distance = const Distance();
 
-    // Calcula o comprimento total da linha e de cada segmento
+    double accumulatedDistance = 0; // ignore: unused_local_variable
 
-    double lineLength = 0;
-    final List<double> segmentLengths = [];
+    // Percorre cada segmento da linha
 
-    for (int i = 0; i < (line.length - 1); i++) {
-
+    for (int i = 0; i < line.length - 1; i++) {
       final startPoint = line[i];
       final endPoint = line[i + 1];
 
-      final segmentLength = distance(startPoint, endPoint);
+      final segLen = distance(startPoint, endPoint);
 
-      segmentLengths.add(segmentLength);
-      lineLength += segmentLength;
-    }
+      // número de árvores nesse segmento (inclui o início, mas não o fim)
 
-    // Distribui as árvores ao longo da linha
-    for (int i = 0; i < numTrees; i++) {
+      int numTrees = segLen ~/ spacingMeters;
 
-      // Progresso de 0 a 1 ao longo da linha
-      double progress = (numTrees == 1) ? 0 : (i / (numTrees - 1));
+      for (int j = 0; j <= numTrees; j++) {
+        double segmentProgress = (j * spacingMeters) / segLen;
 
-      double targetDistance = progress * lineLength;
+        if (segmentProgress > 1) break; // não ultrapassa o fim do segmento
 
-      double accumulatedDistance = 0;
+        final deltaLat = endPoint.latitude - startPoint.latitude;
+        final deltaLng = endPoint.longitude - startPoint.longitude;
 
-      for (int j = 0; j < segmentLengths.length; j++) {
+        final deltaLatProgress = deltaLat * segmentProgress;
+        final deltaLngProgress = deltaLng * segmentProgress;
 
-        final segLen = segmentLengths[j];
+        final lat = startPoint.latitude + deltaLatProgress;
+        final lng = startPoint.longitude + deltaLngProgress;
 
-        // Distância acumulada (desde o início da linha) até o final
-        // do segmento atual
-        final segmentEnd = accumulatedDistance + segLen;
-
-        if (targetDistance <= segmentEnd) {
-
-          final remainingDistance = targetDistance - accumulatedDistance;
-
-          final segmentProgress = remainingDistance / segLen;
-
-          final startPoint = line[j];
-          final endPoint = line[j + 1];
-
-          final deltaLat = endPoint.latitude - startPoint.latitude;
-          final deltaLng = endPoint.longitude - startPoint.longitude;
-
-          final deltaLatProgress = deltaLat * segmentProgress;
-          final deltaLngProgress = deltaLng * segmentProgress;
-
-          final lat = startPoint.latitude + deltaLatProgress;
-          final lng = startPoint.longitude + deltaLngProgress;
-
-          final point = LatLng(lat, lng);
-
-          treeMarkers.add(point);
-
-          break; // passa pra próxima árvore
-        }
-
-        accumulatedDistance += segLen;
+        final point = LatLng(lat, lng);
+        treeMarkers.add(point);
       }
+      accumulatedDistance += segLen;
     }
 
     ranks.add(treeMarkers);
-
     notifyListeners();
   }
 
