@@ -86,8 +86,6 @@ class TreeController extends ChangeNotifier {
 
     final distance = const Distance();
 
-    double accumulatedDistance = 0; // ignore: unused_local_variable
-
     // Percorre cada segmento da linha
 
     for (int i = 0; i < line.length - 1; i++) {
@@ -117,7 +115,6 @@ class TreeController extends ChangeNotifier {
         final point = LatLng(lat, lng);
         treeMarkers.add(point);
       }
-      accumulatedDistance += segLen;
     }
 
     ranks.add(treeMarkers);
