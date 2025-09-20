@@ -200,7 +200,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               }
                             })
                           ],
-                          cursorColor: Colors.grey.shade500.withValues(alpha: 0.8),
+                          cursorColor: Colors.grey.shade500.withValues(alpha: 0.6),
                           cursorWidth: 4,
                           cursorRadius: const Radius.circular(8),
                           decoration: InputDecoration(
@@ -292,8 +292,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       if (drawerStateController.selectedAreaIndex == -1) {
                         errorSnackBar(
                           context,
-                          message:
-                              'Por favor! Crie ou Selecione uma área primeiro',
+                          message: 'Por favor! Crie ou Selecione uma área primeiro',
                         );
                         return;
                       }
@@ -340,8 +339,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       if (drawerStateController.selectedLineIndex == -1) {
                         errorSnackBar(
                           context,
-                          message:
-                              'Por favor! Crie ou Selecione uma linha primeiro',
+                          message: 'Por favor! Crie ou Selecione uma linha primeiro',
                         );
                         return;
                       }
@@ -356,11 +354,18 @@ class _AppDrawerState extends State<AppDrawer> {
                         return;
                       }
 
-                      final double spacing = (spacingText as double);
+                      final spacing = double.tryParse(spacingText);
+
+                      if ((spacing ?? 0) <= 0) {
+                        errorSnackBar(
+                          context,
+                          message: 'Por favor! Insira um valor válido para o espaçamento'
+                        );
+                      }
 
                       treeController.addRankTreeToLine(
                         drawerStateController.selectedLineIndex,
-                        spacing,
+                        spacing!,
                       );
                     },
                   ),
