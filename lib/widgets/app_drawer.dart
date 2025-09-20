@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart' hide DropdownMenu;
 import 'package:agro_sync/controllers/drawer_state_controller.dart';
 import 'package:agro_sync/controllers/line_controller.dart';
+import 'package:flutter/services.dart';
 
 import 'package:provider/provider.dart';
 import 'package:agro_sync/controllers/tree_controller.dart';
@@ -48,7 +49,9 @@ class _AppDrawerState extends State<AppDrawer> {
 
   @override
   Widget build(BuildContext context) {
-    final double drawerWidth = MediaQuery.of(context).size.width * 0.3;
+
+    final screenWidth = MediaQuery.of(context).size.width;
+    final drawerWidth = screenWidth * 0.3;
 
     final drawerStateController = context.watch<DrawerStateController>();
     int treeCounter = drawerStateController.treeCounter;
@@ -119,17 +122,12 @@ class _AppDrawerState extends State<AppDrawer> {
                                   children: [
                                     Radio<String>(
                                       value: op,
-                                      groupValue:
-                                          drawerStateController.radioValue,
-                                      // ignore: deprecated_member_use
+                                      groupValue: drawerStateController.radioValue, // ignore: deprecated_member_use
                                       visualDensity: VisualDensity.compact,
                                       fillColor: const WidgetStatePropertyAll(
                                         Colors.white,
                                       ),
-                                      onChanged: (value) =>
-                                          drawerStateController.setRadioValue(
-                                            value!,
-                                          ), // ignore: deprecated_member_use
+                                      onChanged: (value) => drawerStateController.setRadioValue(value!), // ignore: deprecated_member_use
                                     ),
                                     Text(
                                       op,
@@ -184,12 +182,27 @@ class _AppDrawerState extends State<AppDrawer> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       SizedBox(
-                        width: drawerWidth * 0.25,
+                        width: screenWidth <= 1920 ? (drawerWidth * 0.4) : (drawerWidth * 0.2),
                         child: TextField(
                           controller: _spacingController,
-                          keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true,
-                          ),
+                          inputFormatters: [
+                            TextInputFormatter.withFunction((previousValue, attemptedValue) {
+
+                              String attemptedText = attemptedValue.text;
+
+                              // Regex para definir o limite de 2 números antes e depois do ponto
+                              final allowedPattern = RegExp(r'^(\d{0,2})(\.\d{0,2})?$');
+
+                              if (allowedPattern.hasMatch(attemptedText)) {
+                                return attemptedValue;
+                              } else {
+                                return previousValue;
+                              }
+                            })
+                          ],
+                          cursorColor: Colors.grey.shade500.withValues(alpha: 0.8),
+                          cursorWidth: 4,
+                          cursorRadius: const Radius.circular(8),
                           decoration: InputDecoration(
                             filled: true,
                             fillColor: Colors.white,
@@ -210,7 +223,10 @@ class _AppDrawerState extends State<AppDrawer> {
                           foregroundColor: Colors.white,
                           textStyle: const TextStyle(fontSize: 16),
                         ),
-                        onPressed: () => drawerStateController.reset(),
+                        onPressed: () => {
+                          _spacingController.clear(),
+                          drawerStateController.reset()
+                        }
                       ),
                     ],
                   ),
