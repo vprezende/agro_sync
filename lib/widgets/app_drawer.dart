@@ -113,34 +113,32 @@ class _AppDrawerState extends State<AppDrawer> {
                       Row(
                         children: [
                           Expanded(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: drawerStateController.radioOptions.map((
-                                op,
-                              ) {
-                                return Row(
-                                  children: [
-                                    Radio<String>(
-                                      value: op,
-                                      groupValue: drawerStateController.radioValue, // ignore: deprecated_member_use
-                                      visualDensity: VisualDensity.compact,
-                                      fillColor: const WidgetStatePropertyAll(
-                                        Colors.white,
+                            child: RadioGroup<String>(
+                              groupValue: drawerStateController.radioValue,
+                              onChanged: (value) => drawerStateController.setRadioValue(value!),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: drawerStateController.radioOptions.map((op) {
+                                  return Row(
+                                    children: [
+                                      Radio<String>(
+                                        value: op,
+                                        visualDensity: VisualDensity.compact,
+                                        fillColor: const WidgetStatePropertyAll(Colors.white),
                                       ),
-                                      onChanged: (value) => drawerStateController.setRadioValue(value!), // ignore: deprecated_member_use
-                                    ),
-                                    Text(
-                                      op,
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
+                                      Text(
+                                        op,
+                                        style: const TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(width: 16),
-                                  ],
-                                );
-                              }).toList(),
-                            ),
+                                      const SizedBox(width: 16)
+                                    ],
+                                  );
+                                }).toList(),
+                              ),
+                            )
                           ),
                           TextButton.icon(
                             icon: const Icon(Icons.arrow_back),
