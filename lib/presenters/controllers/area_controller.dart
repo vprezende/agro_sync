@@ -40,7 +40,7 @@ class AreaController extends ChangeNotifier {
     if (currentArea.length < 3) {
       errorSnackBar(
         context,
-        message: 'Para fechar a área, adicione pelo menos 3 pontos'
+        message: "Para fechar a área, adicione pelo menos 3 pontos"
       );
     }
 
@@ -105,7 +105,7 @@ class AreaController extends ChangeNotifier {
       final lat = centroid.latitude;
       final lon = centroid.longitude;
 
-      final url = Uri.parse('https://rest.isric.org/soilgrids/v2.0/properties/query?lat=$lat&lon=$lon');
+      final url = Uri.parse("https://rest.isric.org/soilgrids/v2.0/properties/query?lat=$lat&lon=$lon");
 
       try {
 
@@ -120,7 +120,7 @@ class AreaController extends ChangeNotifier {
           if (response.statusCode != 200 && context.mounted) {
             errorSnackBar(
               context,
-              message: 'error: Status code ${response.statusCode}'
+              message: "error: Status code ${response.statusCode}"
             );
             error = true;
           }
@@ -133,7 +133,7 @@ class AreaController extends ChangeNotifier {
 
           data = jsonDecode(response.body);
 
-          data.remove('query_time_s');
+          data.remove("query_time_s");
 
           success = true;
         }
@@ -141,11 +141,11 @@ class AreaController extends ChangeNotifier {
         if (context.mounted) {
           errorSnackBar(
             context,
-            message: 'error: Status code ${e.toString()}'
+            message: "error: Status code ${e.toString()}"
           );
         }
       }
-      result['area_$areaIndex'] = data;
+      result["area_$areaIndex"] = data;
     }
     return result;
   }

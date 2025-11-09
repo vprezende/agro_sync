@@ -60,7 +60,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     value: (drawerStateController.dropValue.isEmpty)
                       ? null
                       : drawerStateController.dropValue,
-                    hintText: 'Selecione o tipo de rank',
+                    hintText: "Selecione o tipo de rank",
                     onChanged: (op) =>
                       drawerStateController.setDropValue(op.toString()),
                     items: drawerStateController.dropOptions
@@ -74,20 +74,20 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                 ),
                 Visibility(
-                  visible: drawerStateController.dropValue == 'Rank em Nível',
+                  visible: drawerStateController.dropValue == "Rank em Nível",
                   child: Column(
                     children: [
                       DropdownMenu<int>(
                         value: drawerStateController.selectedAreaIndex == -1
                           ? null
                           : drawerStateController.selectedAreaIndex,
-                        hintText: 'Selecione uma área',
+                        hintText: "Selecione uma área",
                         items: List.generate(areaController.allAreas.length, (
                           index,
                         ) {
                           return DropdownMenuItem(
                             value: index,
-                            child: Center(child: Text('area_${index + 1}')),
+                            child: Center(child: Text("area_${index + 1}")),
                           );
                         }),
                         onChanged: (index) {
@@ -130,7 +130,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           ),
                           TextButton.icon(
                             icon: const Icon(Icons.arrow_back),
-                            label: const Text('Voltar'),
+                            label: const Text("Voltar"),
                             onPressed: () => drawerStateController.reset(),
                           ),
                         ],
@@ -139,18 +139,18 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                 ),
 
-                if (drawerStateController.dropValue == 'Rank Linear') ...[
+                if (drawerStateController.dropValue == "Rank Linear") ...[
                   DropdownMenu<int>(
                     value: drawerStateController.selectedLineIndex == -1
                       ? null
                       : drawerStateController.selectedLineIndex,
-                    hintText: 'Selecione uma linha',
+                    hintText: "Selecione uma linha",
                     items: List.generate(lineController.allLines.length, (
                       index,
                     ) {
                       return DropdownMenuItem(
                         value: index,
-                        child: Center(child: Text('linha_${index + 1}')),
+                        child: Center(child: Text("linha_${index + 1}")),
                       );
                     }),
                     onChanged: (index) {
@@ -173,7 +173,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               String attemptedText = attemptedValue.text;
 
                               // Regex para definir o limite de 2 números antes e depois do ponto
-                              final allowedPattern = RegExp(r'^(\d{0,2})(\.\d{0,2})?$');
+                              final allowedPattern = RegExp(r"^(\d{0,2})(\.\d{0,2})?$");
 
                               if (allowedPattern.hasMatch(attemptedText)) {
                                 return attemptedValue;
@@ -185,7 +185,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           cursorWidth: 4,
                           cursorRadius: const Radius.circular(8),
                           decoration: InputDecoration(
-                            labelText: 'Espaçamento',
+                            labelText: "Espaçamento",
                             labelStyle: TextStyle(
                               color: AppPallete.grey500
                             ),
@@ -195,7 +195,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       ),
                       TextButton.icon(
                         icon: const Icon(Icons.arrow_back),
-                        label: const Text('Voltar'),
+                        label: const Text("Voltar"),
                         onPressed: () => {
                           _spacingController.clear(),
                           drawerStateController.reset()
@@ -208,14 +208,14 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
           ),
           Visibility(
-            visible: drawerStateController.dropValue == 'Rank em Nível',
+            visible: drawerStateController.dropValue == "Rank em Nível",
             child: ListTile(
               leading: Icon(
                 Icons.park,
                 color: AppPallete.green700
               ),
               title: Text(
-                'Arvore',
+                "Arvore",
                 style: TextStyle(
                   color: AppPallete.white
                 )
@@ -225,7 +225,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Visibility(
-                    visible: drawerStateController.radioValue == 'rank',
+                    visible: drawerStateController.radioValue == "rank",
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -268,12 +268,12 @@ class _AppDrawerState extends State<AppDrawer> {
                       if (drawerStateController.selectedAreaIndex == -1) {
                         errorSnackBar(
                           context,
-                          message: 'Por favor! Crie ou Selecione uma área primeiro',
+                          message: "Por favor! Crie ou Selecione uma área primeiro",
                         );
                         return;
                       }
 
-                      if (drawerStateController.radioValue != 'rank') {
+                      if (drawerStateController.radioValue != "rank") {
                         treeController.addTreeToArea(
                           drawerStateController.selectedAreaIndex,
                         );
@@ -291,14 +291,14 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
           ),
           Visibility(
-            visible: drawerStateController.dropValue == 'Rank Linear',
+            visible: drawerStateController.dropValue == "Rank Linear",
             child: ListTile(
               leading: Icon(
                 Icons.park,
                 color: AppPallete.green700
               ),
               title: Text(
-                'Arvore',
+                "Arvore",
                 style: AppTypography
                   .roboto
                   .regular
@@ -321,7 +321,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       if (drawerStateController.selectedLineIndex == -1) {
                         errorSnackBar(
                           context,
-                          message: 'Por favor! Crie ou Selecione uma linha primeiro',
+                          message: "Por favor! Crie ou Selecione uma linha primeiro",
                         );
                         return;
                       }
@@ -331,7 +331,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       if (spacingText.isEmpty) {
                         errorSnackBar(
                           context,
-                          message: 'Por favor! Insira um valor para o espaçamento.',
+                          message: "Por favor! Insira um valor para o espaçamento.",
                         );
                         return;
                       }
@@ -341,7 +341,7 @@ class _AppDrawerState extends State<AppDrawer> {
                       if ((spacing ?? 0) <= 0) {
                         errorSnackBar(
                           context,
-                          message: 'Por favor! Insira um valor válido para o espaçamento'
+                          message: "Por favor! Insira um valor válido para o espaçamento"
                         );
                       }
 

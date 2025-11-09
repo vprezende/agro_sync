@@ -63,13 +63,13 @@ class _MapScreenState extends State<MapScreen> {
         ),
         children: [
           TileLayer(
-            urlTemplate: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
-            userAgentPackageName: 'dev.fleaflet.flutter_map.imagery'
+            urlTemplate: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+            userAgentPackageName: "dev.fleaflet.flutter_map.imagery"
           ),
 
           TileLayer(
-            urlTemplate: 'https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}',
-            userAgentPackageName: 'dev.fleaflet.flutter_map.labels',
+            urlTemplate: "https://services.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+            userAgentPackageName: "dev.fleaflet.flutter_map.labels",
           ),
 
           // Camada para exibir os pontos da tela
@@ -92,7 +92,7 @@ class _MapScreenState extends State<MapScreen> {
           // Camada para desenhar o polígono ou conectar os pontos
           // por meio de uma linha
 
-          drawerStateController.dropValue == 'Rank em Nível'
+          drawerStateController.dropValue == "Rank em Nível"
             ? PolygonLayer(
                 polygons: areaController.allAreas.map((polygon) {
                   return Polygon(
@@ -154,13 +154,13 @@ class _MapScreenState extends State<MapScreen> {
             FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  drawerStateController.dropValue == 'PRank em Nível'
+                  drawerStateController.dropValue == "PRank em Nível"
                     ? areaController.closeArea(context)
                     : lineController.connectPoints(context);
                 });
               },
               child: Icon(
-                drawerStateController.dropValue == 'Rank em Nível'
+                drawerStateController.dropValue == "Rank em Nível"
                   ? Icons.crop_square
                   : Icons.linear_scale
               )
@@ -171,7 +171,7 @@ class _MapScreenState extends State<MapScreen> {
             FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  drawerStateController.dropValue == 'Rank em Nível'
+                  drawerStateController.dropValue == "Rank em Nível"
                     ? areaController.resetArea()
                     : lineController.resetLines();
                 });
@@ -184,7 +184,7 @@ class _MapScreenState extends State<MapScreen> {
             FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  drawerStateController.dropValue == 'Rank em Nível'
+                  drawerStateController.dropValue == "Rank em Nível"
                     ? areaController.undoArea()
                     : lineController.undoLine();
                 });

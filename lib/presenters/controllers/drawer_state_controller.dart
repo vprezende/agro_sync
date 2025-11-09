@@ -7,11 +7,11 @@ class DrawerStateController extends ChangeNotifier {
 
   int treeCounter = 0;
 
-  final radioOptions = ['unidade', 'rank'];
-  final dropOptions = ['Rank em Nível', 'Rank Linear'];
+  final radioOptions = ["unidade", "rank"];
+  final dropOptions = ["Rank em Nível", "Rank Linear"];
 
-  String radioValue = 'unidade';
-  String dropValue = '';
+  String radioValue = "unidade";
+  String dropValue = "";
 
   int selectedAreaIndex = -1;
   int selectedLineIndex = -1;
@@ -56,7 +56,7 @@ class DrawerStateController extends ChangeNotifier {
   void reset() {
 
     radioValue = radioOptions.first;
-    dropValue = '';
+    dropValue = "";
 
     selectedAreaIndex = -1;
     selectedLineIndex = -1;
