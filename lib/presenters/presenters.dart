@@ -20,7 +20,7 @@ part 'controllers/drawer_state_controller.dart';
 part 'controllers/line_controller.dart';
 part 'controllers/tree_controller.dart';
 
-part 'pages/map_screen.dart';
+part 'screens/map_screen.dart';
 
 part 'widgets/app_drawer.dart';
 part 'widgets/app_snackbars.dart';
