@@ -260,7 +260,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     color: AppPallete.green700,
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
-                        AppPallete.transparent05
+                        AppPallete.transparent_05p
                       ),
                     ),
 
@@ -314,7 +314,7 @@ class _AppDrawerState extends State<AppDrawer> {
                     color: AppPallete.green700,
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
-                        AppPallete.transparent05
+                        AppPallete.transparent_05p
                       ),
                     ),
                     onPressed: () {

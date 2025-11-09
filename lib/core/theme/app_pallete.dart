@@ -22,5 +22,5 @@ class AppPallete {
   static Color orange = Colors.orange;
 
   static Color transparent = Colors.transparent;
-  static Color transparent05 = Colors.transparent.withValues(alpha: 0.05);
+  static Color transparent_05p = Colors.transparent.withValues(alpha: 0.05);
 }
