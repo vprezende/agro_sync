@@ -7,17 +7,14 @@ class RobotoRegularTypography {
     'base': const TextStyle(
       fontFamily: 'Roboto',
       fontSize: 16,
-      fontWeight: FontWeight.normal
     ),
     'lg': const TextStyle(
       fontFamily: 'Roboto',
       fontSize: 20,
-      fontWeight: FontWeight.normal
     ),
     'xl': const TextStyle(
       fontFamily: 'Roboto',
       fontSize: 24,
-      fontWeight: FontWeight.normal
     ),
   };
 
