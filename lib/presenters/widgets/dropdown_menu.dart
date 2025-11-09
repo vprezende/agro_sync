@@ -1,5 +1,4 @@
-import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter/material.dart';
+part of presenters;
 
 class DropdownMenu<T> extends StatelessWidget {
 
@@ -21,13 +20,7 @@ class DropdownMenu<T> extends StatelessWidget {
     return DropdownButtonFormField2<T>(
       isExpanded: true,
       decoration: InputDecoration(
-        filled: true,
-        iconColor: Colors.grey,
-        fillColor: Colors.white,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide.none
-        ),
+        iconColor: AppPallete.grey
       ),
       dropdownStyleData: DropdownStyleData(
         decoration: BoxDecoration(
@@ -42,7 +35,7 @@ class DropdownMenu<T> extends StatelessWidget {
         child: Text(
           hintText,
           style: TextStyle(
-            color: Colors.grey.shade500
+            color: AppPallete.grey500
           ),
         ),
       ),

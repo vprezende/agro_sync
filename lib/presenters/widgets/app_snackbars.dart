@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+part of presenters;
 
 void errorSnackBar(BuildContext context, {required String message}) {
   ScaffoldMessenger.of(context).showSnackBar(
@@ -6,13 +6,13 @@ void errorSnackBar(BuildContext context, {required String message}) {
       content: Text(
         message,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-        ),
+        style: AppTypography
+          .roboto
+          .medium
+          .base
+          .white
       ),
-      backgroundColor: Colors.redAccent,
+      backgroundColor: AppPallete.redAccent,
       duration: const Duration(seconds: 3),
     )
   );
@@ -24,13 +24,13 @@ void warningSnackBar(BuildContext context, {required String message}) {
       content: Text(
         message,
         textAlign: TextAlign.center,
-        style: const TextStyle(
-          color: Colors.white,
-          fontWeight: FontWeight.w600,
-          fontSize: 16,
-        ),
+        style: AppTypography
+          .roboto
+          .medium
+          .base
+          .white
       ),
-      backgroundColor: Colors.orange,
+      backgroundColor: AppPallete.orange,
       duration: const Duration(seconds: 3),
     ),
   );

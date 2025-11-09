@@ -1,18 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:flutter_map/flutter_map.dart';
-import 'package:geodesy/geodesy.dart';
-import 'package:provider/provider.dart';
-
-// importando os controllers
-
-import 'package:agro_sync/controllers/drawer_state_controller.dart';
-import 'package:agro_sync/controllers/line_controller.dart';
-import 'package:agro_sync/controllers/tree_controller.dart';
-
-// importando widgets
-
-import 'package:agro_sync/widgets/area_dialog.dart';
-import 'package:agro_sync/widgets/app_drawer.dart';
+part of presenters;
 
 class MapScreen extends StatefulWidget {
   const MapScreen({super.key});
@@ -39,8 +25,6 @@ class _MapScreenState extends State<MapScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        foregroundColor: Colors.white,
         toolbarHeight: (56 + 20),
         leadingWidth: 75,
         leading: Builder(
@@ -96,9 +80,9 @@ class _MapScreenState extends State<MapScreen> {
                 width: 12,
                 height: 12,
                 child: Container(
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Colors.blue,
+                    color: AppPallete.blue,
                   ),
                 ),
               );
@@ -113,9 +97,9 @@ class _MapScreenState extends State<MapScreen> {
                 polygons: areaController.allAreas.map((polygon) {
                   return Polygon(
                     points: polygon,
-                    color: Colors.blue.withAlpha(80),
+                    color: AppPallete.blue_80p,
                     borderStrokeWidth: 3.0,
-                    borderColor: Colors.blue,
+                    borderColor: AppPallete.blue
                   );
                 }).toList(),
               )
@@ -124,7 +108,7 @@ class _MapScreenState extends State<MapScreen> {
                   polylines: lineController.allLines.map((points) {
                     return Polyline(
                       points: points,
-                      color: Colors.blue,
+                      color: AppPallete.blue,
                       strokeWidth: 4.0
                     );
                   }).toList()
@@ -137,7 +121,10 @@ class _MapScreenState extends State<MapScreen> {
                 point: point,
                 width: 24,
                 height: 24,
-                child: Icon(Icons.park, color: Colors.green.shade800),
+                child: Icon(
+                  Icons.park,
+                  color: AppPallete.green800
+                ),
               );
             }).toList(),
           ),
@@ -158,7 +145,7 @@ class _MapScreenState extends State<MapScreen> {
                   areaController.isAddingPoints = !areaController.isAddingPoints;
                 });
               },
-              backgroundColor: areaController.isAddingPoints ? Colors.green : Colors.blue,
+              backgroundColor: areaController.isAddingPoints ? AppPallete.green700 : AppPallete.blue,
               child: Icon(areaController.isAddingPoints ? Icons.add_location_alt : Icons.add_location_alt_outlined,),
             ),
 
@@ -167,7 +154,7 @@ class _MapScreenState extends State<MapScreen> {
             FloatingActionButton(
               onPressed: () {
                 setState(() {
-                  drawerStateController.dropValue == 'Rank em Nível'
+                  drawerStateController.dropValue == 'PRank em Nível'
                     ? areaController.closeArea(context)
                     : lineController.connectPoints(context);
                 });

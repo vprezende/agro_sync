@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
+import 'core/theme/theme.dart';
+
 import 'package:provider/provider.dart';
-
-import 'package:agro_sync/controllers/area_controller.dart';
-import 'package:agro_sync/controllers/drawer_state_controller.dart';
-import 'package:agro_sync/controllers/line_controller.dart';
-import 'package:agro_sync/controllers/tree_controller.dart';
-
-import 'package:agro_sync/screens/map_screen.dart';
+import 'presenters/presenters.dart';
 
 void main() {
   runApp(
@@ -38,15 +34,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.blue
-        ).copyWith(
-          primary: Colors.blue,
-          primaryContainer: Colors.blue,
-          onPrimaryContainer: Colors.white
-        ),
-      ),
+      theme: AppTheme.lightThemeMode,
       home: const MapScreen(),
     );
   }

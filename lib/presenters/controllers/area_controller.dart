@@ -1,9 +1,4 @@
-import 'dart:convert';
-import 'package:dart_jts/dart_jts.dart' as jts;
-import 'package:flutter/material.dart';
-import 'package:geodesy/geodesy.dart';
-import 'package:http/http.dart' as http;
-import 'package:agro_sync/widgets/app_snackbars.dart';
+part of presenters;
 
 class AreaController extends ChangeNotifier {
 

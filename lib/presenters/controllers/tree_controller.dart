@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:geodesy/geodesy.dart';
-
-import 'package:agro_sync/controllers/area_controller.dart';
-import 'package:agro_sync/controllers/line_controller.dart';
+part of presenters;
 
 class TreeController extends ChangeNotifier {
 

@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:agro_sync/controllers/line_controller.dart';
-import 'package:agro_sync/controllers/tree_controller.dart';
+part of presenters;
 
 class DrawerStateController extends ChangeNotifier {
 

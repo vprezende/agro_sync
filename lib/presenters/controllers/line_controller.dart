@@ -1,8 +1,4 @@
-import 'package:flutter/widgets.dart';
-import 'package:geodesy/geodesy.dart';
-
-import 'package:agro_sync/controllers/area_controller.dart';
-import 'package:agro_sync/widgets/app_snackbars.dart';
+part of presenters;
 
 class LineController extends ChangeNotifier {
 

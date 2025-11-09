@@ -1,16 +1,4 @@
-import 'package:flutter/material.dart' hide DropdownMenu;
-import 'package:agro_sync/controllers/drawer_state_controller.dart';
-import 'package:agro_sync/controllers/line_controller.dart';
-import 'package:flutter/services.dart';
-
-import 'package:provider/provider.dart';
-import 'package:agro_sync/controllers/tree_controller.dart';
-
-import 'package:agro_sync/controllers/area_controller.dart';
-
-import 'package:agro_sync/widgets/app_snackbars.dart';
-
-import 'package:agro_sync/widgets/dropdown_menu.dart';
+part of presenters;
 
 class AppDrawer extends StatefulWidget {
   const AppDrawer({super.key});
@@ -58,12 +46,11 @@ class _AppDrawerState extends State<AppDrawer> {
 
     return Drawer(
       width: drawerWidth,
-      backgroundColor: Colors.grey.shade300,
       child: ListView(
         children: [
           DrawerHeader(
             margin: EdgeInsets.zero,
-            decoration: const BoxDecoration(color: Colors.lightBlue),
+            decoration: BoxDecoration(color: AppPallete.lightBlue),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,19 +58,19 @@ class _AppDrawerState extends State<AppDrawer> {
                   visible: drawerStateController.dropValue.isEmpty,
                   child: DropdownMenu<String>(
                     value: (drawerStateController.dropValue.isEmpty)
-                        ? null
-                        : drawerStateController.dropValue,
+                      ? null
+                      : drawerStateController.dropValue,
                     hintText: 'Selecione o tipo de rank',
                     onChanged: (op) =>
-                        drawerStateController.setDropValue(op.toString()),
+                      drawerStateController.setDropValue(op.toString()),
                     items: drawerStateController.dropOptions
-                        .map(
-                          (op) => DropdownMenuItem(
-                            value: op,
-                            child: Center(child: Text(op)),
-                          ),
-                        )
-                        .toList(),
+                      .map(
+                        (op) => DropdownMenuItem(
+                          value: op,
+                          child: Center(child: Text(op)),
+                        ),
+                      )
+                      .toList(),
                   ),
                 ),
                 Visibility(
@@ -92,8 +79,8 @@ class _AppDrawerState extends State<AppDrawer> {
                     children: [
                       DropdownMenu<int>(
                         value: drawerStateController.selectedAreaIndex == -1
-                            ? null
-                            : drawerStateController.selectedAreaIndex,
+                          ? null
+                          : drawerStateController.selectedAreaIndex,
                         hintText: 'Selecione uma área',
                         items: List.generate(areaController.allAreas.length, (
                           index,
@@ -124,14 +111,15 @@ class _AppDrawerState extends State<AppDrawer> {
                                       Radio<String>(
                                         value: op,
                                         visualDensity: VisualDensity.compact,
-                                        fillColor: const WidgetStatePropertyAll(Colors.white),
+                                        fillColor: WidgetStatePropertyAll(AppPallete.white),
                                       ),
                                       Text(
                                         op,
-                                        style: const TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16
-                                        ),
+                                        style: AppTypography
+                                          .roboto
+                                          .regular
+                                          .base
+                                          .white
                                       ),
                                       const SizedBox(width: 16)
                                     ],
@@ -143,10 +131,6 @@ class _AppDrawerState extends State<AppDrawer> {
                           TextButton.icon(
                             icon: const Icon(Icons.arrow_back),
                             label: const Text('Voltar'),
-                            style: TextButton.styleFrom(
-                              foregroundColor: Colors.white,
-                              textStyle: const TextStyle(fontSize: 16),
-                            ),
                             onPressed: () => drawerStateController.reset(),
                           ),
                         ],
@@ -158,8 +142,8 @@ class _AppDrawerState extends State<AppDrawer> {
                 if (drawerStateController.dropValue == 'Rank Linear') ...[
                   DropdownMenu<int>(
                     value: drawerStateController.selectedLineIndex == -1
-                        ? null
-                        : drawerStateController.selectedLineIndex,
+                      ? null
+                      : drawerStateController.selectedLineIndex,
                     hintText: 'Selecione uma linha',
                     items: List.generate(lineController.allLines.length, (
                       index,
@@ -198,29 +182,20 @@ class _AppDrawerState extends State<AppDrawer> {
                               }
                             })
                           ],
-                          cursorColor: Colors.grey.shade500.withValues(alpha: 0.6),
                           cursorWidth: 4,
                           cursorRadius: const Radius.circular(8),
                           decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
                             labelText: 'Espaçamento',
-                            labelStyle: TextStyle(color: Colors.grey.shade500),
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              borderSide: BorderSide.none,
+                            labelStyle: TextStyle(
+                              color: AppPallete.grey500
                             ),
+                            floatingLabelBehavior: FloatingLabelBehavior.never,
                           ),
                         ),
                       ),
                       TextButton.icon(
                         icon: const Icon(Icons.arrow_back),
                         label: const Text('Voltar'),
-                        style: TextButton.styleFrom(
-                          foregroundColor: Colors.white,
-                          textStyle: const TextStyle(fontSize: 16),
-                        ),
                         onPressed: () => {
                           _spacingController.clear(),
                           drawerStateController.reset()
@@ -235,12 +210,17 @@ class _AppDrawerState extends State<AppDrawer> {
           Visibility(
             visible: drawerStateController.dropValue == 'Rank em Nível',
             child: ListTile(
-              leading: Icon(Icons.park, color: Colors.green.shade700),
-              title: const Text(
-                'Arvore',
-                style: TextStyle(color: Colors.white),
+              leading: Icon(
+                Icons.park,
+                color: AppPallete.green700
               ),
-              tileColor: Colors.lightBlue,
+              title: Text(
+                'Arvore',
+                style: TextStyle(
+                  color: AppPallete.white
+                )
+              ),
+              tileColor: AppPallete.lightBlue,
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -251,7 +231,6 @@ class _AppDrawerState extends State<AppDrawer> {
                       children: [
                         IconButton(
                           icon: const Icon(Icons.remove),
-                          color: Colors.white,
                           onPressed: () {
                             drawerStateController.decrementTreeCounter();
                           },
@@ -260,16 +239,15 @@ class _AppDrawerState extends State<AppDrawer> {
                           padding: const EdgeInsets.symmetric(horizontal: 8),
                           child: Text(
                             treeCounter.toString(),
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 16,
-                            ),
+                            style: AppTypography
+                              .roboto
+                              .bold
+                              .base
+                              .white
                           ),
                         ),
                         IconButton(
                           icon: const Icon(Icons.add),
-                          color: Colors.white,
                           onPressed: () {
                             drawerStateController.incrementTreeCounter();
                           },
@@ -279,10 +257,10 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   IconButton(
                     icon: const Icon(Icons.pin_drop),
-                    color: Colors.green.shade700,
+                    color: AppPallete.green700,
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
-                        Colors.transparent.withValues(alpha: 0.05),
+                        AppPallete.transparent05
                       ),
                     ),
 
@@ -315,24 +293,30 @@ class _AppDrawerState extends State<AppDrawer> {
           Visibility(
             visible: drawerStateController.dropValue == 'Rank Linear',
             child: ListTile(
-              leading: Icon(Icons.park, color: Colors.green.shade700),
-              title: const Text(
-                'Arvore',
-                style: TextStyle(color: Colors.white),
+              leading: Icon(
+                Icons.park,
+                color: AppPallete.green700
               ),
-              tileColor: Colors.lightBlue,
+              title: Text(
+                'Arvore',
+                style: AppTypography
+                  .roboto
+                  .regular
+                  .base
+                  .white
+              ),
+              tileColor: AppPallete.lightBlue,
               trailing: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   IconButton(
                     icon: const Icon(Icons.pin_drop),
-                    color: Colors.green.shade700,
+                    color: AppPallete.green700,
                     style: ButtonStyle(
                       overlayColor: WidgetStatePropertyAll(
-                        Colors.transparent.withValues(alpha: 0.05),
+                        AppPallete.transparent05
                       ),
                     ),
-
                     onPressed: () {
                       if (drawerStateController.selectedLineIndex == -1) {
                         errorSnackBar(

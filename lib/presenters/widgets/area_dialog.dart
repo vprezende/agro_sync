@@ -1,8 +1,4 @@
-import 'dart:convert';
-import 'package:flutter/material.dart';
-import 'package:agro_sync/widgets/app_snackbars.dart';
-
-import 'package:agro_sync/controllers/area_controller.dart';
+part of presenters;
 
 class AreaDialog extends StatefulWidget {
 
@@ -32,12 +28,21 @@ class AreaDialog extends StatefulWidget {
       context: context,
       barrierDismissible: false,
       builder: (context) {
-        return const AlertDialog(
+        return AlertDialog(
           content: Row(
             children: [
-              CircularProgressIndicator(),
-              SizedBox(width: 16),
-              Text('Carregando dados da área...'),
+              CircularProgressIndicator(
+                color: AppPallete.blue
+              ),
+              const SizedBox(width: 16),
+              Text(
+                'Carregando dados da área...',
+                style: AppTypography
+                  .roboto
+                  .regular
+                  .base
+                  .black
+              ),
             ],
           ),
         );
@@ -116,7 +121,11 @@ class _AreaDialogState extends State<AreaDialog> {
                 scrollDirection: Axis.horizontal,
                 child: Text(
                   formattedJson,
-                  style: const TextStyle(fontFamily: 'monospace'),
+                  style: AppTypography
+                    .monospace
+                    .regular
+                    .base
+                    .black
                 )
               ),
             ),
