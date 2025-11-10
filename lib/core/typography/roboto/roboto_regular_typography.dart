@@ -22,7 +22,7 @@ class RobotoRegularTypography {
   TextStyle get _lgStyle => _map['lg']!;
   TextStyle get _xlStyle => _map['xl']!;
 
-  TextStylePreset get base => TextStylePreset(_baseStyle);
-  TextStylePreset get lg => TextStylePreset(_lgStyle);
-  TextStylePreset get xl => TextStylePreset(_xlStyle);
+  AppTextStylePreset get base => AppTextStylePreset(_baseStyle);
+  AppTextStylePreset get lg => AppTextStylePreset(_lgStyle);
+  AppTextStylePreset get xl => AppTextStylePreset(_xlStyle);
 }

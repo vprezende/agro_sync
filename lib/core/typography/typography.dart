@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../theme/theme.dart';
 
 part 'app_typography.dart';
-part 'text_style_preset.dart';
+part 'app_text_style_preset.dart';
 
 part 'monospace/monospace_typography.dart';
 part 'monospace/monospace_regular_typography.dart';

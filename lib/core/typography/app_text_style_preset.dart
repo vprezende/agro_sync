@@ -1,17 +1,17 @@
 part of typography;
 
-class TextStylePreset {
+class AppTextStylePreset {
   final TextStyle _style;
 
-  TextStylePreset(this._style);
+  AppTextStylePreset(this._style);
 
-  TextStyleColors get color => TextStyleColors(_style);
+  AppTextStyleColors get color => AppTextStyleColors(_style);
 }
 
-class TextStyleColors {
+class AppTextStyleColors {
   final TextStyle baseColor;
 
-  TextStyleColors(this.baseColor);
+  AppTextStyleColors(this.baseColor);
 
   TextStyle get white => baseColor.copyWith(color: AppPallete.white);
   TextStyle get black => baseColor.copyWith(color: AppPallete.black);
