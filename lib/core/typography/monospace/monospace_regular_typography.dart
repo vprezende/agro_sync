@@ -22,7 +22,7 @@ class MonospaceRegularTypography {
   TextStyle get _lgStyle => _map['lg']!;
   TextStyle get _xlStyle => _map['xl']!;
 
-  ColorAccess get base => ColorAccess(_baseStyle);
-  ColorAccess get lg => ColorAccess(_lgStyle);
-  ColorAccess get xl => ColorAccess(_xlStyle);
+  TextStylePreset get base => TextStylePreset(_baseStyle);
+  TextStylePreset get lg => TextStylePreset(_lgStyle);
+  TextStylePreset get xl => TextStylePreset(_xlStyle);
 }

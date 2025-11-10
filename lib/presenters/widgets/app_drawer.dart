@@ -119,6 +119,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                           .roboto
                                           .regular
                                           .base
+                                          .color
                                           .white
                                       ),
                                       const SizedBox(width: 16)
@@ -243,6 +244,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               .roboto
                               .bold
                               .base
+                              .color
                               .white
                           ),
                         ),
@@ -303,6 +305,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   .roboto
                   .regular
                   .base
+                  .color
                   .white
               ),
               tileColor: AppPallete.lightBlue,

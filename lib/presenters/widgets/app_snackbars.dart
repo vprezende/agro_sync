@@ -10,6 +10,7 @@ void errorSnackBar(BuildContext context, {required String message}) {
           .roboto
           .medium
           .base
+          .color
           .white
       ),
       backgroundColor: AppPallete.redAccent,
@@ -28,6 +29,7 @@ void warningSnackBar(BuildContext context, {required String message}) {
           .roboto
           .medium
           .base
+          .color
           .white
       ),
       backgroundColor: AppPallete.orange,

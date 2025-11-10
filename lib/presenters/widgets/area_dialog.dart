@@ -41,6 +41,7 @@ class AreaDialog extends StatefulWidget {
                   .roboto
                   .regular
                   .base
+                  .color
                   .black
               ),
             ],
@@ -125,6 +126,7 @@ class _AreaDialogState extends State<AreaDialog> {
                     .monospace
                     .regular
                     .base
+                    .color
                     .black
                 )
               ),
