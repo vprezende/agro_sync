@@ -11,7 +11,7 @@ class AreaDialog extends StatefulWidget {
     if (areaController.currentArea.isNotEmpty) {
       warningSnackBar(
         context,
-        message: "Você precisa fechar a área atual antes de visualizar os dados"
+        message: 'Você precisa fechar a área atual antes de visualizar os dados'
       );
       return;
     }
@@ -19,7 +19,7 @@ class AreaDialog extends StatefulWidget {
     if (areaController.allAreas.isEmpty) {
       errorSnackBar(
         context,
-        message: "Nenhuma área fechada foi adicionada ainda"
+        message: 'Nenhuma área fechada foi adicionada ainda'
       );
       return;
     }
@@ -36,7 +36,7 @@ class AreaDialog extends StatefulWidget {
               ),
               const SizedBox(width: 16),
               Text(
-                "Carregando dados da área...",
+                'Carregando dados da área...',
                 style: AppTypography
                   .roboto
                   .regular
@@ -88,7 +88,7 @@ class _AreaDialogState extends State<AreaDialog> {
     verticalController = ScrollController();
     horizontalController = ScrollController();
 
-    formattedJson = const JsonEncoder.withIndent("  ").convert(jsonDecode(widget.jsonString));
+    formattedJson = const JsonEncoder.withIndent('  ').convert(jsonDecode(widget.jsonString));
   }
 
   @override
@@ -102,7 +102,7 @@ class _AreaDialogState extends State<AreaDialog> {
   Widget build(BuildContext context) {
     return AlertDialog(
       title: const Center(
-        child: Text("Dados da Área")
+        child: Text('Dados da Área')
       ),
       content: SizedBox(
         width: 400,
@@ -135,7 +135,7 @@ class _AreaDialogState extends State<AreaDialog> {
       actions: [
         TextButton(
           onPressed: () => Navigator.of(context).pop(),
-          child: const Text("Fechar"),
+          child: const Text('Fechar'),
         ),
       ],
     );

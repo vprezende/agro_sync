@@ -1,8 +1,8 @@
-import "package:flutter/material.dart";
-import "core/theme/theme.dart";
+import 'package:flutter/material.dart';
+import 'core/theme/theme.dart';
 
-import "package:provider/provider.dart";
-import "presenters/presenters.dart";
+import 'package:provider/provider.dart';
+import 'presenters/presenters.dart';
 
 void main() {
   runApp(

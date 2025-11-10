@@ -14,7 +14,7 @@ class LineController extends ChangeNotifier {
     if (currentArea.length < 2) {
       errorSnackBar(
         context,
-        message: "Para criar uma linha, adicione pelo menos 2 pontos"
+        message: 'Para criar uma linha, adicione pelo menos 2 pontos'
       );
       return;
     }
