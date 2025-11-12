@@ -15,6 +15,6 @@ class AppTextStyleColor {
 
   AppTextStyleColor(this._style);
 
-  TextStyle get white => _style.copyWith(color: AppPallete.white);
-  TextStyle get black => _style.copyWith(color: AppPallete.black);
+  AppTextStylePreset get white => AppTextStylePreset(_style.copyWith(color: AppPallete.white));
+  AppTextStylePreset get black => AppTextStylePreset(_style.copyWith(color: AppPallete.black));
 }

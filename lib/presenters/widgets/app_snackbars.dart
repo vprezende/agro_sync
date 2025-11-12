@@ -12,6 +12,7 @@ void errorSnackBar(BuildContext context, {required String message}) {
           .base
           .color
           .white
+          .value
       ),
       backgroundColor: AppPallete.redAccent,
       duration: const Duration(seconds: 3),
@@ -31,6 +32,7 @@ void warningSnackBar(BuildContext context, {required String message}) {
           .base
           .color
           .white
+          .value
       ),
       backgroundColor: AppPallete.orange,
       duration: const Duration(seconds: 3),

@@ -121,6 +121,7 @@ class _AppDrawerState extends State<AppDrawer> {
                                           .base
                                           .color
                                           .white
+                                          .value
                                       ),
                                       const SizedBox(width: 16)
                                     ],
@@ -246,6 +247,7 @@ class _AppDrawerState extends State<AppDrawer> {
                               .base
                               .color
                               .white
+                              .value
                           ),
                         ),
                         IconButton(
@@ -307,6 +309,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   .base
                   .color
                   .white
+                  .value
               ),
               tileColor: AppPallete.lightBlue,
               trailing: Row(

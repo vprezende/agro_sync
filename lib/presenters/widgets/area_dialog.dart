@@ -43,6 +43,7 @@ class AreaDialog extends StatefulWidget {
                   .base
                   .color
                   .black
+                  .value
               ),
             ],
           ),
@@ -128,6 +129,7 @@ class _AreaDialogState extends State<AreaDialog> {
                     .base
                     .color
                     .black
+                    .value
                 )
               ),
             ),
