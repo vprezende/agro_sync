@@ -8,8 +8,7 @@ class AppTextButtonTheme {
         .roboto
         .regular
         .base
-        .color
-        .baseColor
+        .value
     )
   );
 }
