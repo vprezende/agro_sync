@@ -2,6 +2,8 @@ part of theme;
 
 class AppPallete {
 
+  AppPallete._();
+
   static Color white = Colors.white;
   static Color black = Colors.black;
 

@@ -4,13 +4,9 @@ import 'package:flutter/material.dart';
 import '../theme/theme.dart';
 
 part 'app_typography.dart';
-part 'app_text_style_preset.dart';
 
-part 'monospace/monospace_typography.dart';
-part 'monospace/monospace_regular_typography.dart';
+part 'presets/app_typography_family_preset.dart';
+part 'presets/app_text_style_preset.dart';
 
-part 'roboto/roboto_typography.dart';
-
-part 'roboto/roboto_regular_typography.dart';
-part 'roboto/roboto_medium_typography.dart';
-part 'roboto/roboto_bold_typography.dart';
+part 'families/monospace_typography.dart';
+part 'families/roboto_typography.dart';
