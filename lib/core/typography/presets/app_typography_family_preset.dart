@@ -30,7 +30,7 @@ class AppTypographyFamilyPreset {
   TextStyle get _lgStyle => _map['lg']!;
   TextStyle get _xlStyle => _map['xl']!;
 
-  AppTextStylePreset get base => AppTextStylePreset(_baseStyle);
-  AppTextStylePreset get lg => AppTextStylePreset(_lgStyle);
-  AppTextStylePreset get xl => AppTextStylePreset(_xlStyle);
+  AppTextStylePreset get base => .new(_baseStyle);
+  AppTextStylePreset get lg => .new(_lgStyle);
+  AppTextStylePreset get xl => .new(_xlStyle);
 }

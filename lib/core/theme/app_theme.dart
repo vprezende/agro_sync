@@ -2,7 +2,7 @@ part of theme;
 
 class AppTheme {
   static final lightThemeMode = ThemeData.light().copyWith(
-    visualDensity: VisualDensity.adaptivePlatformDensity,
+    visualDensity: .adaptivePlatformDensity,
     appBarTheme: AppBarTheme.data,
     drawerTheme: AppDrawerTheme.data,
     floatingActionButtonTheme: AppFabTheme.data,

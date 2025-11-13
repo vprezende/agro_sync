@@ -51,7 +51,7 @@ class AreaDialog extends StatefulWidget {
       },
     );
 
-    await Future.delayed(Duration.zero);
+    await Future.delayed(.zero);
 
     if (!context.mounted) return;
 
@@ -90,7 +90,9 @@ class _AreaDialogState extends State<AreaDialog> {
     verticalController = ScrollController();
     horizontalController = ScrollController();
 
-    formattedJson = const JsonEncoder.withIndent('  ').convert(jsonDecode(widget.jsonString));
+    formattedJson = const JsonEncoder.withIndent('  ').convert(
+      jsonDecode(widget.jsonString)
+    );
   }
 
   @override
@@ -114,13 +116,13 @@ class _AreaDialogState extends State<AreaDialog> {
           thumbVisibility: true,
           child: SingleChildScrollView(
             controller: verticalController,
-            scrollDirection: Axis.vertical,
+            scrollDirection: .vertical,
             child: Scrollbar(
               controller: horizontalController,
               thumbVisibility: true,
               child: SingleChildScrollView(
                 controller: horizontalController,
-                scrollDirection: Axis.horizontal,
+                scrollDirection: .horizontal,
                 child: Text(
                   formattedJson,
                   style: AppTypography

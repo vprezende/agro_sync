@@ -38,7 +38,7 @@ class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
 
-    final screenWidth = MediaQuery.of(context).size.width;
+    final screenWidth = MediaQuery.widthOf(context);
     final drawerWidth = screenWidth * 0.3;
 
     final drawerStateController = context.watch<DrawerStateController>();
@@ -49,10 +49,10 @@ class _AppDrawerState extends State<AppDrawer> {
       child: ListView(
         children: [
           DrawerHeader(
-            margin: EdgeInsets.zero,
+            margin: .zero,
             decoration: BoxDecoration(color: AppPallete.lightBlue),
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: .center,
               children: [
                 Visibility(
                   visible: drawerStateController.dropValue.isEmpty,
@@ -67,7 +67,9 @@ class _AppDrawerState extends State<AppDrawer> {
                       .map(
                         (op) => DropdownMenuItem(
                           value: op,
-                          child: Center(child: Text(op)),
+                          child: Center(
+                            child: Text(op)
+                          ),
                         ),
                       )
                       .toList(),
@@ -82,12 +84,14 @@ class _AppDrawerState extends State<AppDrawer> {
                           ? null
                           : drawerStateController.selectedAreaIndex,
                         hintText: 'Selecione uma área',
-                        items: List.generate(areaController.allAreas.length, (
+                        items: .generate(areaController.allAreas.length, (
                           index,
                         ) {
                           return DropdownMenuItem(
                             value: index,
-                            child: Center(child: Text('area_${index + 1}')),
+                            child: Center(
+                              child: Text('area_${index + 1}')
+                            ),
                           );
                         }),
                         onChanged: (index) {
@@ -104,13 +108,13 @@ class _AppDrawerState extends State<AppDrawer> {
                               groupValue: drawerStateController.radioValue,
                               onChanged: (value) => drawerStateController.setRadioValue(value!),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: .center,
                                 children: drawerStateController.radioOptions.map((op) {
                                   return Row(
                                     children: [
                                       Radio<String>(
                                         value: op,
-                                        visualDensity: VisualDensity.compact,
+                                        visualDensity: .compact,
                                         fillColor: WidgetStatePropertyAll(AppPallete.white),
                                       ),
                                       Text(
@@ -147,12 +151,14 @@ class _AppDrawerState extends State<AppDrawer> {
                       ? null
                       : drawerStateController.selectedLineIndex,
                     hintText: 'Selecione uma linha',
-                    items: List.generate(lineController.allLines.length, (
+                    items: .generate(lineController.allLines.length, (
                       index,
                     ) {
                       return DropdownMenuItem(
                         value: index,
-                        child: Center(child: Text('linha_${index + 1}')),
+                        child: Center(
+                          child: Text('linha_${index + 1}')
+                        ),
                       );
                     }),
                     onChanged: (index) {
@@ -163,14 +169,14 @@ class _AppDrawerState extends State<AppDrawer> {
                   ),
                   const SizedBox(height: 20),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: .spaceBetween,
                     children: [
                       SizedBox(
                         width: screenWidth <= 1920 ? (drawerWidth * 0.4) : (drawerWidth * 0.2),
                         child: TextField(
                           controller: _spacingController,
                           inputFormatters: [
-                            TextInputFormatter.withFunction((previousValue, attemptedValue) {
+                            .withFunction((previousValue, attemptedValue) {
 
                               String attemptedText = attemptedValue.text;
 
@@ -185,13 +191,13 @@ class _AppDrawerState extends State<AppDrawer> {
                             })
                           ],
                           cursorWidth: 4,
-                          cursorRadius: const Radius.circular(8),
+                          cursorRadius: const .circular(8),
                           decoration: InputDecoration(
                             labelText: 'Espaçamento',
                             labelStyle: TextStyle(
                               color: AppPallete.grey500
                             ),
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
+                            floatingLabelBehavior: .never,
                           ),
                         ),
                       ),
@@ -224,12 +230,12 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
               tileColor: AppPallete.lightBlue,
               trailing: Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: .min,
                 children: [
                   Visibility(
                     visible: drawerStateController.radioValue == 'rank',
                     child: Row(
-                      mainAxisSize: MainAxisSize.min,
+                      mainAxisSize: .min,
                       children: [
                         IconButton(
                           icon: const Icon(Icons.remove),
@@ -238,7 +244,7 @@ class _AppDrawerState extends State<AppDrawer> {
                           },
                         ),
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8),
+                          padding: const .symmetric(horizontal: 8),
                           child: Text(
                             treeCounter.toString(),
                             style: AppTypography
@@ -313,7 +319,7 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
               tileColor: AppPallete.lightBlue,
               trailing: Row(
-                mainAxisSize: MainAxisSize.min,
+                mainAxisSize: .min,
                 children: [
                   IconButton(
                     icon: const Icon(Icons.pin_drop),
@@ -342,7 +348,7 @@ class _AppDrawerState extends State<AppDrawer> {
                         return;
                       }
 
-                      final spacing = double.tryParse(spacingText);
+                      final double? spacing = .tryParse(spacingText);
 
                       if ((spacing ?? 0) <= 0) {
                         errorSnackBar(

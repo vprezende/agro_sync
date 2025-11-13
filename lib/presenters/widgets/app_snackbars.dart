@@ -5,7 +5,7 @@ void errorSnackBar(BuildContext context, {required String message}) {
     SnackBar(
       content: Text(
         message,
-        textAlign: TextAlign.center,
+        textAlign: .center,
         style: AppTypography
           .roboto
           .medium
@@ -25,7 +25,7 @@ void warningSnackBar(BuildContext context, {required String message}) {
     SnackBar(
       content: Text(
         message,
-        textAlign: TextAlign.center,
+        textAlign: .center,
         style: AppTypography
           .roboto
           .medium

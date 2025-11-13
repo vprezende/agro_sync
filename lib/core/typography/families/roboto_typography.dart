@@ -2,18 +2,18 @@ part of typography;
 
 class RobotoTypography {
 
-  AppTypographyFamilyPreset get regular => AppTypographyFamilyPreset(
+  AppTypographyFamilyPreset get regular => .new(
     fontName: 'Roboto',
-    fontWeight: FontWeight.w400
+    fontWeight: .w400
   );
 
-  AppTypographyFamilyPreset get medium => AppTypographyFamilyPreset(
+  AppTypographyFamilyPreset get medium => .new(
     fontName: 'Roboto',
-    fontWeight: FontWeight.w500
+    fontWeight: .w500
   );
 
-  AppTypographyFamilyPreset get bold => AppTypographyFamilyPreset(
+  AppTypographyFamilyPreset get bold => .new(
     fontName: 'Roboto',
-    fontWeight: FontWeight.w700
+    fontWeight: .w700
   );
 }

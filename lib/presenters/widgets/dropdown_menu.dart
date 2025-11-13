@@ -24,11 +24,11 @@ class DropdownMenu<T> extends StatelessWidget {
       ),
       dropdownStyleData: DropdownStyleData(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: .circular(16),
         ),
       ),
-      menuItemStyleData:MenuItemStyleData(
-        overlayColor: WidgetStateProperty.all(Colors.grey.shade300),
+      menuItemStyleData: MenuItemStyleData(
+        overlayColor: .all(AppPallete.grey300),
       ),
       value: value,
       hint: Center(

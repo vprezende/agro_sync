@@ -4,10 +4,10 @@ class AppInputTheme {
   static final data = InputDecorationThemeData(
     filled: true,
     fillColor: AppPallete.white,
-    floatingLabelBehavior: FloatingLabelBehavior.never,
+    floatingLabelBehavior: .never,
     border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(8),
-      borderSide: BorderSide.none
+      borderRadius: .circular(8),
+      borderSide: .none
     ),
   );
 }

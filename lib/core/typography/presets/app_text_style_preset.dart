@@ -7,7 +7,7 @@ class AppTextStylePreset {
 
   TextStyle get value => _style;
 
-  AppTextStyleColor get color => AppTextStyleColor(_style);
+  AppTextStyleColor get color => .new(_style);
 }
 
 class AppTextStyleColor {
@@ -15,8 +15,17 @@ class AppTextStyleColor {
 
   AppTextStyleColor(this._style);
 
-  AppTextStyleColored get white => AppTextStyleColored(_style.copyWith(color: AppPallete.white));
-  AppTextStyleColored get black => AppTextStyleColored(_style.copyWith(color: AppPallete.black));
+  AppTextStyleColored get white => .new(
+    _style.copyWith(
+      color: AppPallete.white
+    )
+  );
+
+  AppTextStyleColored get black => .new(
+    _style.copyWith(
+      color: AppPallete.black
+    )
+  );
 }
 
 class AppTextStyleColored {

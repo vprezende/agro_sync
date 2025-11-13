@@ -30,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
         leading: Builder(
           builder: (context) {
             return Container(
-              margin: const EdgeInsets.only(top: 20, left: 20),
+              margin: const .only(top: 20, left: 20),
               child: FloatingActionButton(
                 onPressed: () {
                   Scaffold.of(context).openDrawer();
@@ -54,7 +54,7 @@ class _MapScreenState extends State<MapScreen> {
             }
           }),
           // Impedindo que o usuário ultrapasse a borda inferior e superior do mapa
-          cameraConstraint: CameraConstraint.contain(
+          cameraConstraint: .contain(
             bounds: LatLngBounds(
               const LatLng(-85.0511, -180), // Limite inferior da projeção Mercator
               const LatLng(85.0511, 180), // Limite superior da projeção Mercator
@@ -81,7 +81,7 @@ class _MapScreenState extends State<MapScreen> {
                 height: 12,
                 child: Container(
                   decoration: BoxDecoration(
-                    shape: BoxShape.circle,
+                    shape: .circle,
                     color: AppPallete.blue,
                   ),
                 ),
@@ -131,10 +131,10 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
 
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+      floatingActionButtonLocation: .endFloat,
 
       floatingActionButton: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: .min,
         children: [
 
           if (drawerStateController.dropValue.isNotEmpty) ...[
@@ -145,8 +145,15 @@ class _MapScreenState extends State<MapScreen> {
                   areaController.isAddingPoints = !areaController.isAddingPoints;
                 });
               },
-              backgroundColor: areaController.isAddingPoints ? AppPallete.green700 : AppPallete.blue,
-              child: Icon(areaController.isAddingPoints ? Icons.add_location_alt : Icons.add_location_alt_outlined,),
+              backgroundColor:
+                areaController.isAddingPoints
+                  ? AppPallete.green700
+                  : AppPallete.blue,
+              child: Icon(
+                areaController.isAddingPoints
+                  ? Icons.add_location_alt
+                  : Icons.add_location_alt_outlined
+              ),
             ),
 
             const SizedBox(height: 25),
